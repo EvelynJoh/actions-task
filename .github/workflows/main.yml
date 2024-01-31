@@ -1,0 +1,22 @@
+name: task workflow
+
+on: [push]
+
+jobs:
+  question:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Step 1 / checkout code from repo
+      uses: actions/checkout@v4
+
+    - name: Python
+      uses: actions/setup-python@v3
+      with:
+        python-version: '3.x' # Version of Python to use
+
+    - name: Ask for Time
+      run: echo "The current time is $(date)"
+
+    - name: Run Python Script
+      run: python main.py
